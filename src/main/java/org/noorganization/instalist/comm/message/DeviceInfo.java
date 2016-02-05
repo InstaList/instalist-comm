@@ -22,6 +22,11 @@ public class DeviceInfo {
         mId = _id;
     }
 
+    public DeviceInfo withId(Integer _id) {
+        setId(_id);
+        return this;
+    }
+
     @JsonProperty("name")
     public String getName() {
         return mName;
@@ -32,6 +37,11 @@ public class DeviceInfo {
         mName = _name;
     }
 
+    public DeviceInfo withName(String _name) {
+        setName(_name);
+        return this;
+    }
+
     @JsonProperty("authorized")
     public Boolean getAuthorized() {
         return mAuthorized;
@@ -40,5 +50,10 @@ public class DeviceInfo {
     @JsonProperty("authorized")
     public void setAuthorized(Boolean _authorized) {
         mAuthorized = _authorized;
+    }
+
+    public DeviceInfo withAuthorized(Boolean _authorized) {
+        setAuthorized(_authorized);
+        return this;
     }
 }
