@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Created by damihe on 05.02.16.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DeviceInfo {
+public class DeviceInfo extends EntityObject {
     private Integer mId;
     private String  mName;
     private Boolean mAuthorized;
