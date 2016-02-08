@@ -34,6 +34,10 @@ public class CategoryInfo extends EntityObject {
         this.mUUID = id;
     }
 
+    public void setUUID(UUID _uuid) {
+        setUUID(_uuid.toString());
+    }
+
     public CategoryInfo withUUID(String id) {
         this.mUUID = id;
         return this;
