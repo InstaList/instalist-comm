@@ -17,6 +17,7 @@ public class ListInfo {
     private String mName;
     private String mLastChanged;
     private String mCategoryUUID;
+    private Boolean mRemoveCategory;
     private Boolean mDeleted;
 
     @JsonProperty("uuid")
@@ -99,6 +100,21 @@ public class ListInfo {
 
     public ListInfo withCategoryUUID(UUID _uuid) {
         setCategoryUUID(_uuid.toString());
+        return this;
+    }
+
+    @JsonProperty("removecategory")
+    public Boolean getRemoveCategory() {
+        return mRemoveCategory;
+    }
+
+    @JsonProperty("removecategory")
+    public void setRemoveCategory(Boolean _removeCat) {
+        mRemoveCategory = _removeCat;
+    }
+
+    public ListInfo withRemoveCategory(Boolean _removeCat) {
+        setRemoveCategory(_removeCat);
         return this;
     }
 
