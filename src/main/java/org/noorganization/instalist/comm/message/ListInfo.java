@@ -93,6 +93,10 @@ public class ListInfo {
         mCategoryUUID = _categoryUUID;
     }
 
+    public void setCategoryUUID(UUID _categoryUUID) {
+        mCategoryUUID = _categoryUUID.toString();
+    }
+
     public ListInfo withCategoryUUID(String _uuid) {
         setCategoryUUID(_uuid);
         return this;
