@@ -3,102 +3,105 @@ package org.noorganization.instalist.comm.message;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.noorganization.instalist.comm.support.DateHelper;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import javax.annotation.Generated;
 
 
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-@Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-    "id",
-    "name",
-    "lastChanged"
-})
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({ "uuid", "name", "lastchanged", "deleted" })
 public class UnitInfo {
 
-    @JsonProperty("id")
-    private String id;
-    @JsonProperty("name")
-    private String name;
-    @JsonProperty("lastChanged")
-    private String lastChanged;
+    private String  mUUID;
+    private String  mName;
+    private String  mLastChanged;
+    private Boolean mDeleted;
+
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    /**
-     * 
-     * @return
-     *     The id
-     */
-    @JsonProperty("id")
-    public String getId() {
-        return id;
+    @JsonProperty("uuid")
+    public String getUUID() {
+        return mUUID;
     }
 
-    /**
-     * 
-     * @param id
-     *     The id
-     */
-    @JsonProperty("id")
-    public void setId(String id) {
-        this.id = id;
+    @JsonProperty("uuid")
+    public void setUUID(String id) {
+        this.mUUID = id;
     }
 
-    public UnitInfo withId(String id) {
-        this.id = id;
+    public void setUUID(UUID _uuid) {
+        setUUID(_uuid != null ? _uuid.toString() : null);
+    }
+
+    public UnitInfo withUUID(String _uuid) {
+        setUUID(_uuid);
         return this;
     }
 
-    /**
-     * 
-     * @return
-     *     The name
-     */
-    @JsonProperty("name")
-    public String getName() {
-        return name;
+    public UnitInfo withUUID(UUID _uuid) {
+        setUUID(_uuid);
+        return this;
     }
 
-    /**
-     * 
-     * @param name
-     *     The name
-     */
     @JsonProperty("name")
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return mName;
+    }
+
+    @JsonProperty("name")
+    public void setName(String _name) {
+        mName = _name;
     }
 
     public UnitInfo withName(String name) {
-        this.name = name;
+        setName(name);
         return this;
     }
 
-    /**
-     * 
-     * @return
-     *     The lastChanged
-     */
-    @JsonProperty("lastChanged")
+    @JsonProperty("lastchanged")
     public String getLastChanged() {
-        return lastChanged;
+        return mLastChanged;
     }
 
-    /**
-     * 
-     * @param lastChanged
-     *     The lastChanged
-     */
-    @JsonProperty("lastChanged")
-    public void setLastChanged(String lastChanged) {
-        this.lastChanged = lastChanged;
+    @JsonProperty("lastchanged")
+    public void setLastChanged(String _lastChanged) {
+        mLastChanged = _lastChanged;
+    }
+
+    public void setLastChanged(Date _lastChanged) {
+        if (_lastChanged != null)
+            setLastChanged(DateHelper.writeDate(_lastChanged));
+        else
+            setLastChanged((String) null);
     }
 
     public UnitInfo withLastChanged(String lastChanged) {
-        this.lastChanged = lastChanged;
+        this.mLastChanged = lastChanged;
+        return this;
+    }
+
+    public UnitInfo withLastChanged(Date _lastChanged) {
+        setLastChanged(_lastChanged);
+        return this;
+    }
+
+    @JsonProperty("deleted")
+    public Boolean getDeleted() {
+        return mDeleted;
+    }
+
+    @JsonProperty("deleted")
+    public void setDeleted(Boolean _deleted) {
+        mDeleted = _deleted;
+    }
+
+    public UnitInfo withDeleted(Boolean _deleted) {
+        setDeleted(_deleted);
         return this;
     }
 
