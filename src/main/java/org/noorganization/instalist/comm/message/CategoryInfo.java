@@ -1,16 +1,13 @@
 
 package org.noorganization.instalist.comm.message;
 
-import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.noorganization.instalist.comm.support.DateHelper;
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 
 import java.util.Date;
 import java.util.UUID;
 
-@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-@Generated("org.jsonschema2pojo")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "uuid",
     "name",
@@ -21,7 +18,7 @@ public class CategoryInfo extends EntityObject {
 
     private String mUUID;
     private String mName;
-    private String mLastChanged;
+    private Date mLastChanged;
     private Boolean mDeleted;
 
     @JsonProperty("uuid")
@@ -58,32 +55,25 @@ public class CategoryInfo extends EntityObject {
         this.mName = name;
     }
 
-    public CategoryInfo withName(String name) {
-        this.mName = name;
+    public CategoryInfo withName(String _name) {
+        setName(_name);
         return this;
     }
 
     @JsonProperty("lastchanged")
-    public String getLastChanged() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = StdDateFormat.DATE_FORMAT_STR_ISO8601)
+    public Date getLastChanged() {
         return mLastChanged;
     }
 
     @JsonProperty("lastchanged")
-    public void setLastChanged(String lastChanged) {
-        this.mLastChanged = lastChanged;
-    }
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = StdDateFormat.DATE_FORMAT_STR_ISO8601)
     public void setLastChanged(Date _lastChanged) {
-        this.mLastChanged = DateHelper.writeDate(_lastChanged);
-    }
-
-    public CategoryInfo withLastChanged(String lastChanged) {
-        this.mLastChanged = lastChanged;
-        return this;
+        mLastChanged = _lastChanged;
     }
 
     public CategoryInfo withLastChanged(Date _lastChanged) {
-        this.mLastChanged = DateHelper.writeDate(_lastChanged);
+        setLastChanged(_lastChanged);
         return this;
     }
 
@@ -98,7 +88,7 @@ public class CategoryInfo extends EntityObject {
     }
 
     public CategoryInfo withDeleted(Boolean _deleted) {
-        mDeleted = _deleted;
+        setDeleted(_deleted);
         return this;
     }
 }

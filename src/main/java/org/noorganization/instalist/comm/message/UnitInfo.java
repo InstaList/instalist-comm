@@ -2,14 +2,12 @@
 package org.noorganization.instalist.comm.message;
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.noorganization.instalist.comm.support.DateHelper;
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import javax.annotation.Generated;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -18,7 +16,8 @@ public class UnitInfo {
 
     private String  mUUID;
     private String  mName;
-    private String  mLastChanged;
+    //private String  mLastChanged;
+    private Date    mLastChanged;
     private Boolean mDeleted;
 
     @JsonIgnore
@@ -64,25 +63,15 @@ public class UnitInfo {
     }
 
     @JsonProperty("lastchanged")
-    public String getLastChanged() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = StdDateFormat.DATE_FORMAT_STR_ISO8601)
+    public Date getLastChanged() {
         return mLastChanged;
     }
 
     @JsonProperty("lastchanged")
-    public void setLastChanged(String _lastChanged) {
-        mLastChanged = _lastChanged;
-    }
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = StdDateFormat.DATE_FORMAT_STR_ISO8601)
     public void setLastChanged(Date _lastChanged) {
-        if (_lastChanged != null)
-            setLastChanged(DateHelper.writeDate(_lastChanged));
-        else
-            setLastChanged((String) null);
-    }
-
-    public UnitInfo withLastChanged(String lastChanged) {
-        this.mLastChanged = lastChanged;
-        return this;
+        mLastChanged = _lastChanged;
     }
 
     public UnitInfo withLastChanged(Date _lastChanged) {

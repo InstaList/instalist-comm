@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jackson.version>2.7.0</jackson.version>
+        <jackson.version>2.7.1</jackson.version>
     </properties>
     <groupId>org.noorganization</groupId>
     <artifactId>instalist-comm</artifactId>

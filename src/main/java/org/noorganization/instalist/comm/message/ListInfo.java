@@ -1,10 +1,10 @@
 package org.noorganization.instalist.comm.message;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.noorganization.instalist.comm.support.DateHelper;
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 
 import java.util.Date;
 import java.util.UUID;
@@ -15,7 +15,7 @@ public class ListInfo {
 
     private String mUUID;
     private String mName;
-    private String mLastChanged;
+    private Date mLastChanged;
     private String mCategoryUUID;
     private Boolean mRemoveCategory;
     private Boolean mDeleted;
@@ -60,26 +60,19 @@ public class ListInfo {
     }
 
     @JsonProperty("lastchanged")
-    public String getLastChanged() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = StdDateFormat.DATE_FORMAT_STR_ISO8601)
+    public Date getLastChanged() {
         return mLastChanged;
     }
 
     @JsonProperty("lastchanged")
-    public void setLastChanged(String lastChanged) {
-        this.mLastChanged = lastChanged;
-    }
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = StdDateFormat.DATE_FORMAT_STR_ISO8601)
     public void setLastChanged(Date _lastChanged) {
-        this.mLastChanged = DateHelper.writeDate(_lastChanged);
-    }
-
-    public ListInfo withLastChanged(String lastChanged) {
-        this.mLastChanged = lastChanged;
-        return this;
+        mLastChanged = _lastChanged;
     }
 
     public ListInfo withLastChanged(Date _lastChanged) {
-        this.mLastChanged = DateHelper.writeDate(_lastChanged);
+        setLastChanged(_lastChanged);
         return this;
     }
 
