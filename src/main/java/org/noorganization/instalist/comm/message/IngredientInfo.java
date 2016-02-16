@@ -20,8 +20,6 @@ public class IngredientInfo extends EntityObject {
     private Date    mLastChanged;
     private Boolean mDeleted;
 
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
     @JsonProperty("uuid")
     public String getUUID() {
         return mUUID;
@@ -138,21 +136,6 @@ public class IngredientInfo extends EntityObject {
 
     public IngredientInfo withDeleted(Boolean _deleted) {
         setDeleted(_deleted);
-        return this;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
-    public IngredientInfo withAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
         return this;
     }
 
