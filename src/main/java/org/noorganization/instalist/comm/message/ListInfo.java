@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"uuid","name","categoryuuid","lastchanged","deleted"})
-public class ListInfo {
+public class ListInfo extends EntityObject {
 
     private String mUUID;
     private String mName;

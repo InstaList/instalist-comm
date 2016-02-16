@@ -12,16 +12,12 @@ import java.util.UUID;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "uuid", "name", "lastchanged", "deleted" })
-public class UnitInfo {
+public class UnitInfo extends EntityObject {
 
     private String  mUUID;
     private String  mName;
-    //private String  mLastChanged;
     private Date    mLastChanged;
     private Boolean mDeleted;
-
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("uuid")
     public String getUUID() {
@@ -93,20 +89,4 @@ public class UnitInfo {
         setDeleted(_deleted);
         return this;
     }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
-    public UnitInfo withAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-        return this;
-    }
-
 }

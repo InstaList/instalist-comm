@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.util.StdDateFormat;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "uuid", "name", "unituuid", "defaultamount", "stepamount", "lastchanged",
         "deleted" })
-public class ProductInfo {
+public class ProductInfo extends EntityObject {
 
     private String mUUID;
     private String mName;
@@ -22,8 +22,6 @@ public class ProductInfo {
     private Date mLastChanged;
     private Boolean mDeleted;
     private Boolean mRemoveUnit;
-
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("uuid")
     public String getUUID() {
@@ -162,21 +160,6 @@ public class ProductInfo {
 
     public ProductInfo withDeleted(Boolean _deleted) {
         setDeleted(_deleted);
-        return this;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
-    public ProductInfo withAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
         return this;
     }
 
