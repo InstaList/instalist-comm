@@ -13,7 +13,7 @@ import java.util.UUID;
     "name",
     "lastchanged",
     "deleted"
-})
+}) 
 public class CategoryInfo extends EntityObject {
 
     private String mUUID;
