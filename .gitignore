@@ -12,3 +12,8 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
+# Gradle generated files
+.gradle/
+
+# Built application files
+**/build/**
