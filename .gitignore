@@ -1,19 +1,14 @@
 
 .directory
 
-### Maven template
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-
 # Gradle generated files
 .gradle/
 
 # Built application files
 **/build/**
+
+# Gradle generated project files
+instalist-comm.iml
+instalist-comm.iws
+instalist-comm.ipr
+

@@ -1,7 +1,7 @@
 # InstaList comm
 
-Communication project for [InstaList](https://bitbucket.org/fhnoorg/einkaufsliste) and it's 
-[Server](https://bitbucket.org/fhnoorg/einkaufsliste-server). 
+Communication project for [InstaList](https://github.com/InstaList/instalist-android) and it's 
+[Server](https://github.com/InstaList/instalist-server). 
 
 Currently, InstaList uses a REST-API accepting and creating JSON for transmitting data. The messages
 can get created and parsed in a easy via [Jackson](https://github.com/FasterXML/jackson) and it's 
@@ -12,22 +12,21 @@ Classes that can be used for this purpose are located in package
 
 ## Usage
 
-Use these classes as a library, for example via maven. This library is not available in the 
-central repository. But it can be included with a master maven-project like this:
+Use these classes as a library, for example via gradle. This library is not available in the 
+central repository. But it can be included with a master gradle-project like this:
 
-    <!-- [...] !-->
-    <packaging>pom</packaging>
-    <modules>
-        <module>instalist-comm</module>
-        <module>other module</module>
-    </modules>
-    <!-- [...] !-->
-    
-Where the modules are relative paths to the modules (where a `pom.xml` is inside). Then it can be
-used as a normal dependency in other modules:
+    // gradle.settings
+    include ':instalist-comm'
 
-    <dependency>
-        <groupId>org.noorganization</groupId>
-        <artifactId>instalist-comm</artifactId>
-        <version>0.1-SNAPSHOT</version>
-    </dependency>
+    // build.gradle
+    dependencies {
+        compile(':instalist-comm')
+        // ...
+    }
+
+This works if your master is one directory above this project.
+
+You can create IntelliJ-IDEA compatible project files with:
+
+    ./gradlew idea
+
