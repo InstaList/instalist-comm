@@ -8,7 +8,7 @@
 **/build/**
 
 # Gradle generated project files
-instalist-comm.iml
+*.iml
 instalist-comm.iws
 instalist-comm.ipr
 
